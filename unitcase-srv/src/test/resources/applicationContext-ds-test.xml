@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <!-- 初始化表结构和插入基础数据 -->
+	<jdbc:initialize-database data-source="dataSource">  
+            <jdbc:script location="classpath:test-create.sql" encoding="UTF-8"/>  
+            <jdbc:script location="classpath:test-import.sql" encoding="UTF-8"/>  
+    </jdbc:initialize-database>  
+        
+	<bean id="dataSource" class="org.h2.jdbcx.JdbcConnectionPool" destroy-method="dispose">
+		<constructor-arg>
+			<bean class="org.h2.jdbcx.JdbcDataSource">
+				<property name="url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MYSQL" />
+			</bean>
+		</constructor-arg>
+	</bean>
+</beans>

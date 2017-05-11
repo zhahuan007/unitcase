@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.unitcase.srv.mapper.UserMapper" >
+	<resultMap id="BaseResultMap" type="com.unitcase.entity.User" >
+	  <id column="user_id" property="userId" jdbcType="BIGINT" />
+	  <result column="name" property="name" jdbcType="VARCHAR" />
+	  <result column="email" property="email" jdbcType="VARCHAR" />
+	  <result column="reg_date" property="regDate" jdbcType="TIMESTAMP" />
+	</resultMap>
+  
+	<sql id="Base_Column_List" >
+	  user_id, name, email, reg_date
+	</sql>
+	
+	<select id="getUser" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+	  select 
+	  <include refid="Base_Column_List" />
+	  from t_user
+	  where user_id = #{userId,jdbcType=BIGINT}
+	</select>
+	
+	<insert id="addUser" parameterType="com.unitcase.entity.User" >
+	  insert into t_user <trim prefix="(" suffix=")" suffixOverrides="," >
+	    <if test="userId != null" >
+	      user_id,
+	    </if>
+	    <if test="name != null" >
+	      name,
+	    </if>
+	    <if test="email != null" >
+	      email,
+	    </if>
+	    <if test="regDate != null" >
+	      reg_date,
+	    </if>
+	  </trim>
+	  <trim prefix="values (" suffix=")" suffixOverrides="," >
+	    <if test="userId != null" >
+	      #{userId,jdbcType=BIGINT},
+	    </if>
+	    <if test="name != null" >
+	      #{name,jdbcType=VARCHAR},
+	    </if>
+	    <if test="email != null" >
+	      #{email,jdbcType=VARCHAR},
+	    </if>
+	    <if test="regDate != null" >
+	      #{regDate,jdbcType=TIMESTAMP},
+	    </if>
+	    </trim>
+	 </insert>
+  
+</mapper>

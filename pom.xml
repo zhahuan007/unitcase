@@ -21,6 +21,10 @@
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<maven-source-plugin.version>3.0.0</maven-source-plugin.version>
 		<jdk.version>1.7</jdk.version>
+		<dbcp_version>2.1.1</dbcp_version>
+		<slf4j.version>1.6.2</slf4j.version>
+		<log4j.version>1.2.16</log4j.version>
+		<commons-logging-api.version>1.1</commons-logging-api.version>
     </properties>
 
 	<dependencyManagement>
@@ -101,6 +105,35 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>${dbcp_version}</version>
+			</dependency>
+			
+			
+			<!-- Log libs -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging-api</artifactId>
+				<version>${commons-logging-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
 			</dependency>
 			
 		</dependencies>
