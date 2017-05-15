@@ -25,6 +25,8 @@
 		<slf4j.version>1.6.2</slf4j.version>
 		<log4j.version>1.2.16</log4j.version>
 		<commons-logging-api.version>1.1</commons-logging-api.version>
+		<zkclient.version>0.3</zkclient.version>
+		<mysql-connector-java.version>5.1.24</mysql-connector-java.version>
     </properties>
 
 	<dependencyManagement>
@@ -135,6 +137,16 @@
 				<artifactId>log4j</artifactId>
 				<version>${log4j.version}</version>
 			</dependency>
+			<dependency>
+			      <groupId>com.101tec</groupId>
+			      <artifactId>zkclient</artifactId>
+			      <version>${zkclient.version}</version>
+		    </dependency>
+		    <dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql-connector-java.version}</version>
+			</dependency>
 			
 		</dependencies>
 	</dependencyManagement>
@@ -176,5 +188,6 @@
 		<module>unitcase-web</module>
 		<module>unitcase-srv</module>
 		<module>unitcase-interface</module>
+		<module>unitcase-client</module>
 	</modules>
 </project>

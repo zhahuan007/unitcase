@@ -13,6 +13,16 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -23,7 +33,7 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-
+		
 		<plugins>
 			<plugin>  
 			  <groupId>org.apache.maven.plugins</groupId>  

@@ -1,7 +1,9 @@
 package com.unitcase.service;
 
+import org.omg.CORBA.UserException;
+
+import com.alibaba.dubbo.rpc.RpcException;
 import com.unitcase.entity.User;
-import com.unitcase.exception.UserException;
 
 public interface UserService {
 
@@ -17,5 +19,5 @@ public interface UserService {
 	 * @return
 	 * @throws UserException
 	 */
-	public User getUser(Long userId) throws UserException;
+	public User getUser(Long userId) throws RpcException;
 }
