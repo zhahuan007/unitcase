@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUser(Long userId) throws RpcException {
-		LOGGER.info("查询用户,用户ID：", userId);
+		LOGGER.info("查询用户,用户ID：%d", userId);
 		
 		User user = userMapper.getUser(userId);
 		
@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService {
 			throw RpcExceptionHelper.newRpcException(ExceptionCons.USER_EXCEPTION.USER_NOT_FOUND);
 		}
 		return user;
+	}
+
+	@Override
+	public void uploadPhoto(Long userId, byte[] fileBytes) {
+		LOGGER.info("查询用户,用户ID：%d", userId);
 	}
 
 }

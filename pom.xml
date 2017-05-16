@@ -27,6 +27,8 @@
 		<commons-logging-api.version>1.1</commons-logging-api.version>
 		<zkclient.version>0.3</zkclient.version>
 		<mysql-connector-java.version>5.1.24</mysql-connector-java.version>
+		<mockito-all.version>1.10.19</mockito-all.version>
+		<fasterxml.version>2.7.4</fasterxml.version>
     </properties>
 
 	<dependencyManagement>
@@ -92,21 +94,31 @@
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.easymock</groupId>
 				<artifactId>easymock</artifactId>
 				<version>${easymock.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.easymock</groupId>
 				<artifactId>easymockclassextension</artifactId>
 				<version>${easymockclassextension.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito-all.version}</version>		  
+				<scope>test</scope>
 			</dependency>
 			
 			<dependency>
@@ -147,6 +159,25 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql-connector-java.version}</version>
 			</dependency>
+			
+			<!-- 定义3rd fasterxml 依赖 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${fasterxml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${fasterxml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${fasterxml.version}</version>
+            </dependency>
 			
 		</dependencies>
 	</dependencyManagement>

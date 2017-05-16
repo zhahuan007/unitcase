@@ -20,4 +20,11 @@ public interface UserService {
 	 * @throws UserException
 	 */
 	public User getUser(Long userId) throws RpcException;
+	
+	/**
+	 * 上传照片
+	 * @param userId
+	 * @param fileBytes
+	 */
+	public void uploadPhoto(Long userId, byte[] fileBytes);
 }
